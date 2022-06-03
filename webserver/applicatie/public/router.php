@@ -13,8 +13,34 @@ Met `parse_url` zoals hieronder aangeroepen pak je alleen het pad-gedeelte.
 Dus dan wordt het `'/pad/naar/pagina'`.
 */
 $urlPad = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+/* INDEX */
 if ($urlPad === '' || $urlPad === '/') {
   require_once 'src/views/index.php';
+/* OVERVIEW */
+} else if ($urlPad === '/overview' || $urlPad === '/overview/') {
+  require_once 'src/views/overview.php';
+/* ABOUT */
+} else if ($urlPad === '/about' || $urlPad === '/about/') {
+  require_once 'src/views/about.php';
+/* DETAILS */
+} else if ($urlPad === '/details' || $urlPad === '/details/') {
+  require_once 'src/views/details.php';
+/* PLAYER */
+} else if ($urlPad === '/player' || $urlPad === '/player/') {
+  require_once 'src/views/player.php';
+/* PRIVACY */
+} else if ($urlPad === '/privacy' || $urlPad === '/privacy/') {
+  require_once 'src/views/privacy.php';
+/* SINGIN */
+} else if ($urlPad === '/signin' || $urlPad === '/signin/') {
+  require_once 'src/views/signin.php';
+/* SIGNUP */
+} else if ($urlPad === '/signup' || $urlPad === '/signup/') {
+  require_once 'src/views/signup.php';
+/* TEST ROUTE */
+} else if ($urlPad === '/test' || $urlPad === '/test/') {
+  require_once 'src/views/test.php';
 } else {
   /*
   Er is geen pagina opgevraagd in het HTTP-request.
@@ -25,7 +51,7 @@ if ($urlPad === '' || $urlPad === '/') {
   Als het pad eindigt met `.css` of één van de andere door `|` gescheiden bestandsnaamextensies,
   is een geldig bestandstype opgevraagd.
   */
-      '/\.(?:css|png|jpg|jpeg|svg|woff|woff2|ttf|otf|html|mp4|webm|ogm|ogv|ogg|mp3)$/',
+      '/\.(?:css|png|jpg|jpeg|svg|woff|woff2|ttf|otf|html|mp4|webm|ogm|ogv|ogg|mp3|webp)$/',
       $urlPad
   );
   if ($isBestand) {

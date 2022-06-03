@@ -18,24 +18,23 @@ apt-get install -y libgssapi-krb5-2
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 apt-get update
-apt-get install -y php8.0 php8.0-dev php8.0-xml php8.0-intl php8.0-curl php8.0-mbstring php8.0-xdebug
+apt-get install -y php8.1 php8.1-dev php8.1-xml php8.1-intl php8.1-curl php8.1-mbstring php8.1-xdebug php-xml
 
 # very obscure hack, but pecl searches for sed in /usr/bin/sed instead of /sed
 ln -s /bin/sed /usr/bin/sed
 sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 
-
 pecl install sqlsrv
 pecl install pdo_sqlsrv
-printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.0/mods-available/sqlsrv.ini
-printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.0/mods-available/pdo_sqlsrv.ini
-phpenmod -v 8.0 sqlsrv pdo_sqlsrv
+printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.1/mods-available/sqlsrv.ini
+printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.1/mods-available/pdo_sqlsrv.ini
+phpenmod -v 8.1 sqlsrv pdo_sqlsrv
 
-cp /root/php.ini /etc/php/8.0/cli/
-cat /root/docker-php-ext-xdebug.ini >> /etc/php/8.0/cli/conf.d/20-xdebug.ini
-cp /root/security.ini /etc/php/8.0/cli/conf.d/
-pecl config-set php_ini /etc/php/8.0/cli/php.ini
+cp /root/php.ini /etc/php/8.1/cli/
+cat /root/docker-php-ext-xdebug.ini >> /etc/php/8.1/cli/conf.d/20-xdebug.ini
+cp /root/security.ini /etc/php/8.1/cli/conf.d/
+pecl config-set php_ini /etc/php/8.1/cli/php.ini
 
 wget -O phive.phar https://phar.io/releases/phive.phar
 wget -O phive.phar.asc https://phar.io/releases/phive.phar.asc

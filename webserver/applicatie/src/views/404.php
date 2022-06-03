@@ -6,14 +6,21 @@ declare(strict_types=1);
 <!DOCTYPE html>
 <html lang="nl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fletnix</title>
+    <?php
+        include 'src/utils/head.php';
+    ?>
+    <title>Fletnix - Not Found</title>
   </head>
   <body>
-    <main>
-      <h1>Niets gevonden</h1>
-      <p>Op deze locatie werd niets gevonden.</p>
-    </main>
+    <?php
+        include 'src/utils/navbar.php';
+    ?>
+    <div class="container">
+      <h1>404 Not Found</h1>
+      <p>The requested page does not exist.</p>
+    </div>
+    <?php
+        include 'src/utils/footer.php';
+    ?>
   </body>
 </html>
