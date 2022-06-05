@@ -1,37 +1,55 @@
+<?php
+  require('src/utils/sql/get_movie_details_by_id.php');
+
+  $movie_details = null;
+if (isset($_GET['movie_id'])) {
+    $movie_details = get_movie_details_by_id($_GET['movie_id'], $conn);
+}
+
+  $movie_id = $movie_details['movie_id'];
+  $movie_price = $movie_details['price'];
+  $movie_title = $movie_details['title'];
+  $movie_cover = $movie_details['cover_image'];
+  $movie_description = $movie_details['description'];
+  $movie_director = $movie_details['directors'];
+  $movie_cast = $movie_details['cast'];
+  $movie_year = $movie_details['publication_year'];
+  $movie_duration = $movie_details['duration'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Flatnix - Movie Details</title>
+    <title>Flatnix - $movie_title</title>
     <?php
-        include 'src/utils/head.php';
+        include 'src/utils/includes/head.php';
     ?>
 </head>
 <body class="movie-details-body">
     <?php
-      include 'src/utils/navbar.php';
+      include 'src/utils/includes/navbar.php';
     ?>
     <div class="container">
         <div class="split">
             <div class="center-content">
-                <img src="img/poster_skyfall.jpg">
+                <img src="<?= $movie_cover ?>">
             </div>
             <div class="flex-column gap-2vh padding-2vw">
-                    <h2>James Bond: Skyfall</h2>
-                    <p>When James Bond's (Daniel Craig's) latest assignment goes gravely wrong and Agents around the world are exposed, MI6 is attacked, forcing (M Dame Judi Dench) to relocate the agency. These events cause her authority and position to be challenged by Gareth Mallory (Ralph Fiennes), the new Chairman of the Intelligence and Security Committee. With MI6 now compromised from both inside and out, M is left with one ally she can trust: Bond. 007 takes to the shadows, aided only by field agent, Miss Eve Moneypenny (Naomie Harris), following a trail to the mysterious Tiago Rodriguez, a.k.a. Raoul Silva (Javier Bardem), whose lethal and hidden motives have yet to reveal themselves.</p>
+                    <h2><?= $movie_title ?></h2>
+                    <p><?= $movie_description ?></p>
                     <ul>
-                        <li><b>Director:</b></li>
-                        <li><b>Cast:</b></li>
-                        <li><b>Year:</b></li>
-                        <li><b>Duration:</b></li>
+                        <li><b>Director:</b> <?= $movie_director ?></li>
+                        <li><b>Cast:</b> <?= $movie_cast ?></li>
+                        <li><b>Year:</b> <?= $movie_year ?></li>
+                        <li><b>Duration:</b> <?= $movie_duration ?></li>
                     </ul>
-                    <a href="/player">
-                        <button>Watch Movie</button>
+                    <a href="/player?movie_id=<?= $movie_id ?>">
+                        <button>Watch Movie (€<?= $movie_price ?>)</button>
                     </a>
             </div>
         </div>
     </div>
     <?php
-        include 'src/utils/footer.php';
+        include 'src/utils/includes/footer.php';
     ?>
 </body>
 </html>

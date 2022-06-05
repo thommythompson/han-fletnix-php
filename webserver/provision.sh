@@ -31,6 +31,8 @@ printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.1/mods-available/sqls
 printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.1/mods-available/pdo_sqlsrv.ini
 phpenmod -v 8.1 sqlsrv pdo_sqlsrv
 
+pecl install xdebug
+
 cp /root/php.ini /etc/php/8.1/cli/
 cat /root/docker-php-ext-xdebug.ini >> /etc/php/8.1/cli/conf.d/20-xdebug.ini
 cp /root/security.ini /etc/php/8.1/cli/conf.d/

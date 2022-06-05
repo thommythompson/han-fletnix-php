@@ -3,12 +3,12 @@
 <head>
     <title>Fletnix - About</title>
     <?php
-        include 'src/utils/head.php';
+        include 'src/utils/includes/head.php';
     ?>
 </head>
 <body>
     <?php
-      include 'src/utils/navbar.php';
+      include 'src/utils/includes/navbar.php';
     ?>
     <div class="container split">
         <div>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <?php
-        include 'src/utils/footer.php';
+        include 'src/utils/includes/footer.php';
     ?>
 </body>
 </html>

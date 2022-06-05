@@ -1,8 +1,9 @@
 <?php
 
 // Verdeelt HTTP requests naar de juiste PHP-views.
-
 declare(strict_types=1);
+
+session_start();
 
 require_once 'config/bootstrap.php';
 
@@ -18,28 +19,31 @@ $urlPad = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 if ($urlPad === '' || $urlPad === '/') {
   require_once 'src/views/index.php';
 /* OVERVIEW */
-} else if ($urlPad === '/overview' || $urlPad === '/overview/') {
+} elseif ($urlPad === '/overview' || $urlPad === '/overview/') {
   require_once 'src/views/overview.php';
 /* ABOUT */
-} else if ($urlPad === '/about' || $urlPad === '/about/') {
+} elseif ($urlPad === '/about' || $urlPad === '/about/') {
   require_once 'src/views/about.php';
 /* DETAILS */
-} else if ($urlPad === '/details' || $urlPad === '/details/') {
+} elseif ($urlPad === '/details' || $urlPad === '/details/') {
   require_once 'src/views/details.php';
 /* PLAYER */
-} else if ($urlPad === '/player' || $urlPad === '/player/') {
+} elseif ($urlPad === '/player' || $urlPad === '/player/') {
   require_once 'src/views/player.php';
 /* PRIVACY */
-} else if ($urlPad === '/privacy' || $urlPad === '/privacy/') {
+} elseif ($urlPad === '/privacy' || $urlPad === '/privacy/') {
   require_once 'src/views/privacy.php';
 /* SINGIN */
-} else if ($urlPad === '/signin' || $urlPad === '/signin/') {
+} elseif ($urlPad === '/signin' || $urlPad === '/signin/') {
   require_once 'src/views/signin.php';
 /* SIGNUP */
-} else if ($urlPad === '/signup' || $urlPad === '/signup/') {
+} elseif ($urlPad === '/signup' || $urlPad === '/signup/') {
   require_once 'src/views/signup.php';
+/* LOGOUT ROUTE */
+} elseif ($urlPad === '/logout' || $urlPad === '/logout/') {
+  require_once 'src/views/logout.php';
 /* TEST ROUTE */
-} else if ($urlPad === '/test' || $urlPad === '/test/') {
+} elseif ($urlPad === '/test' || $urlPad === '/test/') {
   require_once 'src/views/test.php';
 } else {
   /*

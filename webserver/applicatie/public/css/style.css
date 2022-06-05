@@ -293,6 +293,11 @@ a p:hover {
   background-color: var(--primary-color);
 }
 
+.error {
+  color:#000000;
+  background-color:rgb(255, 105, 105);
+}
+
 @media only screen and (max-width: 800px) {
 
   nav > div,
