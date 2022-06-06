@@ -1,20 +1,23 @@
 <?php
-  require('src/utils/sql/get_movie_details_by_id.php');
 
-  $movie_details = null;
+require('src/utils/sql/get_movie_details_by_id.php');
+
+$movie_details = null;
+
 if (isset($_GET['movie_id'])) {
     $movie_details = get_movie_details_by_id($_GET['movie_id'], $conn);
+
+    $movie_id = $movie_details['movie_id'];
+    $movie_price = $movie_details['price'];
+    $movie_title = $movie_details['title'];
+    $movie_cover = $movie_details['cover_image'];
+    $movie_story_line = $movie_details['story_line'];
+    $movie_director = $movie_details['directors'];
+    $movie_cast = $movie_details['cast'];
+    $movie_year = $movie_details['publication_year'];
+    $movie_duration = $movie_details['duration'];
 }
 
-  $movie_id = $movie_details['movie_id'];
-  $movie_price = $movie_details['price'];
-  $movie_title = $movie_details['title'];
-  $movie_cover = $movie_details['cover_image'];
-  $movie_description = $movie_details['description'];
-  $movie_director = $movie_details['directors'];
-  $movie_cast = $movie_details['cast'];
-  $movie_year = $movie_details['publication_year'];
-  $movie_duration = $movie_details['duration'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +38,7 @@ if (isset($_GET['movie_id'])) {
             </div>
             <div class="flex-column gap-2vh padding-2vw">
                     <h2><?= $movie_title ?></h2>
-                    <p><?= $movie_description ?></p>
+                    <p><?= $movie_story_line ?></p>
                     <ul>
                         <li><b>Director:</b> <?= $movie_director ?></li>
                         <li><b>Cast:</b> <?= $movie_cast ?></li>

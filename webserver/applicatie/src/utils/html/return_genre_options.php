@@ -1,12 +1,18 @@
 <?php
 
-function insert_genre_options($conn)
+function return_genre_options($conn, $selected = null)
 {
-    $query = "SELECT genre_name FROM Genre";
-    $stmt = $conn->query($query);
-    $result = $stmt->fetchAll();
+    require('src/utils/sql/get_genres.php');
+    $genres = $options = '';
+    $genres = get_genres($conn);
 
-    foreach ($result as $row) {
-        echo '<option value="' . $row['genre_name'] . '" default>' . $row['genre_name'] . '</option>';
+    foreach ($genres as $row) {
+        if ($selected == $row['genre_name']) {
+            $options = $options . '<option selected value="' . $row['genre_name'] . '">' . $row['genre_name'] . '</option>';
+        } else {
+            $options = $options . '<option value="' . $row['genre_name'] . '">' . $row['genre_name'] . '</option>';
+        }
     }
+
+    return $options;
 }

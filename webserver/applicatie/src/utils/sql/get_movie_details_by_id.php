@@ -3,7 +3,7 @@
 function get_movie_details_by_id($movie_id, $conn)
 {
     $query = <<<SQL
-  SELECT m.movie_id, m.title, m.duration, m.description, m.price, m.publication_year, m.cover_image, g.genres, d.directors, c.cast
+  SELECT m.movie_id, m.title, m.duration, m.description, m.story_line, m.price, m.publication_year, m.cover_image, m.poster_image, m.video_url, g.genres, d.directors, c.cast
   FROM Movie AS m
   LEFT JOIN (
       SELECT mg.movie_id, string_agg(mg.genre_name, ', ') as genres

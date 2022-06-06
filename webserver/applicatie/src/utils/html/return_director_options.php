@@ -1,18 +1,18 @@
 <?php
 
-function insert_director_options($conn)
+function return_director_options($conn, $selected = null)
 {
-    $query = <<<EOF
-  SELECT p.person_id, CONCAT(p.firstname, ' ', p.lastname) AS director
-  FROM Movie_Director AS md
-  INNER JOIN Person AS p
-  ON p.person_id = md.person_id
-  ORDER BY director ASC
-  EOF;
-    $stmt = $conn->query($query);
-    $result = $stmt->fetchAll();
+    require('src/utils/sql/get_directors.php');
+    $directors = $options = '';
+    $directors = get_directors($conn);
 
-    foreach ($result as $row) {
-        echo '<option value="' . $row['director'] . '" default>' . $row['director'] . '</option>';
+    foreach ($directors as $row) {
+        if ($selected == $row['director']) {
+            $options = $options . '<option selected value="' . $row['director'] . '">' . $row['director'] . '</option>';
+        } else {
+            $options = $options . '<option value="' . $row['director'] . '">' . $row['director'] . '</option>';
+        }
     }
+
+    return $options;
 }

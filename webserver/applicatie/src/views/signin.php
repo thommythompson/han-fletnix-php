@@ -2,14 +2,18 @@
 
 require('src/utils/helper/test_input.php');
 require('src/utils/sql/get_user_by_email.php');
-require('src/utils/helper/display_error.php');
+require('src/utils/html/return_error_banner.php');
 require('src/utils/helper/redirect.php');
+
+if (isset($_SESSION["id"])) {
+    redirect("/");
+}
 
 $email = $password = $fullname = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET['movie_id'])) {
-        display_error("Login required to watch this movie");
+        return_error_banner("Login required to watch this movie");
     }
 }
 
@@ -35,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (!$user) {
                 $error_msg = "User not found";
-            } elseif ($user['password'] != $password) {
+            } elseif (!password_verify($password, $user['password'])) {
                 $error_msg = "Password invalid";
             } else {
                 $_SESSION["id"] = $user['id'];
@@ -49,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
         if ($error_msg) {
-            display_error("invalid form data: {$error_msg}");
+            return_error_banner("invalid form data: {$error_msg}");
         }
     }
 }

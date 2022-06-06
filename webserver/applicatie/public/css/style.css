@@ -103,7 +103,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/wallpaper_skyfall.jpeg");
+  background-image: url("../img/poster_skyfall.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -296,6 +296,10 @@ a p:hover {
 .error {
   color:#000000;
   background-color:rgb(255, 105, 105);
+}
+
+.movie-details-body img {
+  margin: 2rem;
 }
 
 @media only screen and (max-width: 800px) {
