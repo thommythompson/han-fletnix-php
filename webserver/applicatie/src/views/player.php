@@ -30,7 +30,7 @@ require_login($movie_id);
       include 'src/utils/includes/navbar.php';
     ?>
     <div class="container">
-        <a href="/details<?= $movie_id ?>">
+        <a href="/details?movie_id=<?= $movie_id ?>">
             <p class="menu-item"> < back</p>
         </a>
         <video height="100%" controls>
