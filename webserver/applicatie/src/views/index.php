@@ -24,8 +24,8 @@
                 <h3>"All your favorite movies in one place"<h3>
             </div>
             <div >
-                <a href="/overview">
-                    <button class="zoom-animation">Watch Movies</button>
+                <a href="/signup">
+                    <button class="zoom-animation">Sign up now!</button>
                 </a>
             </div>
         </div>

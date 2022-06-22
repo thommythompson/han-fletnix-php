@@ -20,11 +20,12 @@
                 <div>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
                     <input type="fullname" name="fullname" id="fullname" class="form-control" placeholder="Full name" required="">
-                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Password" required="">
-                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Repeat password" required="">
+                    <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" name="password1" id="password1" class="form-control" placeholder="Password (8 char, 1 num, 1 special char)" required="">
+                    <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" name="password2" id="password2" class="form-control" placeholder="Repeat password" required="">
                     <button type="submit" name="signup">Sign up</button>
                 </div>
             </form>
+            <a href="/privacy">Flatnix values your privacy, click to learn more</a>
         </div>
     </div>
     <?php

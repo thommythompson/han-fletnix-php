@@ -4,18 +4,13 @@
 
 declare(strict_types=1);
 
-define('DB_HOST', 'rdbms');
-define('DB_DATABASE', 'Movies');
-define('DB_LOGIN', 'applicatie');
-define('DB_PASSWORD', 'testpassword!Hallo-1244!'); // file("/run/secrets/password_rdbms_app")[0]
-
-$serverName = DB_HOST;
-$uid = DB_LOGIN;
-$pwd = DB_PASSWORD;
-$databaseName = DB_DATABASE;
+$serverName = 'rdbms';
+$uid = 'applicatie';
+$pwd = rtrim(file_get_contents('/run/secrets/password_rdbms_app', true));
+$databaseName = 'Movies';
 
 $conn = new PDO("sqlsrv:Server={$serverName};Database={$databaseName}", $uid, $pwd);
 
-if(!$conn){
-  echo "unable to connect to database.";
+if (!$conn) {
+    echo "unable to connect to database.";
 }

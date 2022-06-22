@@ -3,12 +3,12 @@
 <head>
     <title>Fletnix - Privacy</title>
     <?php
-        include 'src/utils/head.php';
+        include 'src/utils/includes/head.php';
     ?>
 </head>
 <body>
     <?php
-      include 'src/utils/navbar.php';
+      include 'src/utils/includes/navbar.php';
     ?>
     <div class="container">
         <h2>Fletnix values your privacy</h2>
@@ -25,7 +25,7 @@
         </ul>
     </div>
     <?php
-        include 'src/utils/footer.php';
+        include 'src/utils/includes/footer.php';
     ?>
 </body>
 </html>

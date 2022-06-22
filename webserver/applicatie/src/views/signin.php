@@ -23,6 +23,7 @@
                     <button type="submit" name="signin">Sign in</button>
                 </div>
             </form>
+            <a href="#">Forgot password?</a>
         </div>
     </div>
     <?php

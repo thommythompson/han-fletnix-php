@@ -14,9 +14,8 @@ $email = $password1 = $password2 = $fullname = $error_msg = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['signup'])) {
-        $form_ok = true;
+        $form_ok = false;
         if (!isset($_POST['email']) || !isset($_POST['fullname']) || !isset($_POST['password1']) || !isset($_POST['password2'])) {
-            $form_ok = false;
             $error_msg = "Missing form data";
         } else {
             $email = test_input($_POST['email']);
@@ -25,11 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password2 = test_input($_POST['password2']);
 
             if (!$email || !$fullname || !$password1 || !$password2) {
-                $form_ok = false;
                 $error_msg = "Empty form detected";
+            } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $password1)) {
+                $error_msg = "Passwords requires a minimum of eight characters, at least one letter, one number and one special character";
             } elseif ($password1 != $password2) {
-                $form_ok = false;
                 $error_msg = "Passwords do not match";
+            } else {
+                $form_ok = $true;
             }
         }
 
