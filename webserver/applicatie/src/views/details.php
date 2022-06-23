@@ -22,7 +22,7 @@ if (isset($_GET['movie_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Flatnix - $movie_title</title>
+    <title>Flatnix - <?= $movie_title ?></title>
     <?php
         include 'src/utils/includes/head.php';
     ?>
@@ -34,20 +34,36 @@ if (isset($_GET['movie_id'])) {
     <div class="container">
         <div class="split">
             <div class="center-content">
-                <img src="<?= $movie_cover ?>">
+                <img src="<?= $movie_cover ?>" alt="movie cover">
             </div>
             <div class="flex-column gap-2vh padding-2vw">
-                    <h2><?= $movie_title ?></h2>
-                    <p><?= $movie_story_line ?></p>
-                    <ul>
-                        <li><b>Director:</b> <?= $movie_director ?></li>
-                        <li><b>Cast:</b> <?= $movie_cast ?></li>
-                        <li><b>Year:</b> <?= $movie_year ?></li>
-                        <li><b>Duration:</b> <?= $movie_duration ?></li>
-                    </ul>
-                    <a href="/player?movie_id=<?= $movie_id ?>">
-                        <button>Watch Movie (€<?= $movie_price ?>)</button>
-                    </a>
+                <h2>
+                    <?= $movie_title ?>
+                </h2>
+                <p>
+                    <?= $movie_story_line ?>
+                </p>
+                <ul>
+                    <li>
+                        <b>Director:</b>
+                        <?= $movie_director ?>
+                    </li>
+                    <li>
+                        <b>Cast:</b>
+                        <?= $movie_cast ?>
+                    </li>
+                    <li>
+                        <b>Year:</b>
+                        <?= $movie_year ?>
+                    </li>
+                    <li>
+                        <b>Duration:</b>
+                        <?= $movie_duration ?>
+                    </li>
+                </ul>
+                <form action="/player" method="get">
+                    <button name="movie_id" value="<?= $movie_id ?>">Watch Movie (€<?= $movie_price ?>)</button>
+                </form>
             </div>
         </div>
     </div>

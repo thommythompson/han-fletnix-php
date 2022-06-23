@@ -21,21 +21,37 @@ function return_movie_table($genre, $year, $director, $search_query, $conn)
 
         $table_records = $table_records . <<<HTML
         <tr>
-          <td class="hide-at-mobile">
-              <a href="/details?movie_id=$movie_id">
-                  <img src="$movie_cover">
-              </a>
-          </td>
-          <td>
-              <a href="/details?movie_id=$movie_id">
-                  <p>$movie_title</p>
-              </a>
-          </td>
-          <td><p>$movie_duration</p></td>
-          <td><p>$movie_genres</p></td>
-          <td><p>$movie_directors</p></td>
-          <td><p>$movie_year</p></td>
-      </tr>
+            <td class="hide-at-mobile">
+                <a href="/details?movie_id=$movie_id">
+                    <img src="$movie_cover" alt="movie cover">
+                </a>
+            </td>
+            <td>
+                <a href="/details?movie_id=$movie_id">
+                    <p>$movie_title</p>
+                </a>
+            </td>
+            <td>
+                <p>
+                    $movie_duration
+                </p>
+            </td>
+            <td>
+                <p>
+                    $movie_genres
+                </p>
+            </td>
+            <td>
+                <p>
+                    $movie_directors
+                </p>
+            </td>
+            <td>
+                <p>
+                    $movie_year
+                </p>
+            </td>
+        </tr>
       HTML;
     }
 

@@ -16,10 +16,10 @@
     <div class="container container--narrow">
         <div class="text-center">
             <h2>Sign in</h2>
-            <form action="" method="POST">
+            <form method="POST">
                 <div>
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                    <input type="email" name="email" id="inputEmail" placeholder="Email address" required autofocus>
+                    <input type="password" name="password" id="inputPassword" placeholder="Password" required>
                     <button type="submit" name="signin">Sign in</button>
                 </div>
             </form>

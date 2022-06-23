@@ -27,11 +27,13 @@
 
         <div class="flex-column">
             <h2>Send us a message</h2>
-            <form action="" method="POST">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="text" id="inputTitle" nclass="form-control" placeholder="Title" required>
-                <input type="textarea" id="inputMessage" class="form-control" placeholder="Message" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Send Message</button>
+            <form method="POST">
+                <input type="email" id="inputEmail" placeholder="Email address" required autofocus />
+                <input type="text" id="inputTitle" placeholder="Title" required />
+                <textarea id="inputMessage" placeholder="Message" required></textarea>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Send Message
+                </button>
             </form>
         </div>
     </div>

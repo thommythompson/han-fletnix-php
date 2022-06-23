@@ -50,8 +50,7 @@ img {
 footer img {
   filter: invert(100%) sepia(14%) saturate(1%) hue-rotate(79deg) brightness(101%) contrast(101%);
   height: 20px;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding-left: 0 1vw 0 1vw;
 }
 
 nav,
@@ -71,8 +70,7 @@ footer > div {
 }
 
 section {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em 0 2em 0;
 }
 
 h1,
@@ -80,10 +78,8 @@ h2,
 h3,
 p,
 button {
-  margin-bottom: 0.5vh;
-  padding-bottom: 0.5vh;
-  margin-top: 0.5vh;
-  padding-top: 0.5vh;
+  padding: 0.5vh 0 0.5vh 0;
+  margin: 0.5vh 0 0.5vh 0;
 }
 
 p {
@@ -152,11 +148,10 @@ button:hover {
 }
 
 input,
-select {
+select,
+textarea {
   display: block;
-  padding-bottom: 1vh;
-  margin-bottom: 1vh;
-  margin-top: 1vh;
+  margin: 0.5vh 0 0.5vh 0;
   width: 100%;
   line-height: 1.5;
   position: relative;
@@ -169,10 +164,6 @@ select {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  margin-bottom: 0.5vh;
-  padding-bottom: 0.5vh;
-  margin-top: 0.5vh;
-  padding-top: 0.5vh;
 }
 
 ul {
@@ -184,10 +175,9 @@ ul > li {
   padding-left: 1vw;
 }
 
-input[type="textarea"] {
+textarea {
   height: 16vh;
   text-align: left;
-  padding-bottom: 13vh;
 }
 
 video {
@@ -273,8 +263,7 @@ a p:hover {
 }
 
 .filter-menu {
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin: 1vh 0 1vh 0;
 }
 
 .text-center {
@@ -300,6 +289,10 @@ a p:hover {
 
 .movie-details-body img {
   margin: 2rem;
+}
+
+.color-white {
+  color: white;
 }
 
 @media only screen and (max-width: 800px) {

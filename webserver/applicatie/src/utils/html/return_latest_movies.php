@@ -25,17 +25,19 @@ function return_latest_movies($conn)
                     </a>
                 </div>
                 <div>
-                    <a href="/details">
+                    <a href="/details?movie_id=$movie_id">
                         <h2>$movie_title</h2>
                     </a>
-                    <p>$movie_description</p>
-                    <a href="/details?movie_id=$movie_id">
-                        <button>Watch Movie</button>
-                    </a>
+                    <p>
+                        $movie_description
+                    </p>
+                    <form action="/details" method="get">
+                        <button name="movie_id" value="$movie_id">Watch Movie</button>
+                    </form>
                 </div>
             </div>
         </section>
-      HTML;
+        HTML;
     }
 
     return $return;

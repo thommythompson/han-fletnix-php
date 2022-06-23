@@ -15,27 +15,27 @@
     ?>
     <div class="container">
         <h2>Movie overview</h2>
-            <form>
-                <div class="split filter-menu">
-                    <select name="genre" id="genre">
-                      <option value="" disabled selected>Select genre</option>
-                      <?= $options_genre ?>
-                    </select>
-                    <select name="year" id="year">
-                      <option value="" disabled selected>Select year</option>
-                      <?= $options_year ?>
-                    </select>
-                    <select name="director" id="director">
-                      <option value="" disabled selected>Select director</option>
-                      <?= $options_director ?>
-                    </select>
-                    <input name="search_query" id="search_query" type="text" placeholder="Search">
-                    <a href="/overview">
-                      <button type="button" class="zoom-animation">Reset</button>
-                    </a>
-                    <button type="submit" name="search">Search</button>
-                </div>
-            </form>
+        <form>
+            <div class="split filter-menu">
+                <select name="genre" id="genre">
+                    <option value="" disabled selected>Select genre</option>
+                    <?= $options_genre ?>
+                </select>
+                <select name="year" id="year">
+                    <option value="" disabled selected>Select year</option>
+                    <?= $options_year ?>
+                </select>
+                <select name="director" id="director">
+                    <option value="" disabled selected>Select director</option>
+                    <?= $options_director ?>
+                </select>
+                <input name="search_query" id="search_query" type="text" placeholder="Search">
+                <a href="/overview">
+                    <button type="button" class="zoom-animation">Reset</button>
+                </a>
+                <button type="submit" name="search">Search</button>
+            </div>
+        </form>
         <table>
             <tr>
                 <th class="hide-at-mobile"></th>

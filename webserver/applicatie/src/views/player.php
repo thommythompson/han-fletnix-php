@@ -31,9 +31,9 @@ require_login($movie_id);
     ?>
     <div class="container">
         <a href="/details?movie_id=<?= $movie_id ?>">
-            <p class="menu-item"> < back</p>
+            <p class="menu-item">&lt; back</p>
         </a>
-        <video height="100%" controls>
+        <video controls>
             <source src="<?= $movie_video_url ?>" type="video/mp4">
         </video>
     </div>
